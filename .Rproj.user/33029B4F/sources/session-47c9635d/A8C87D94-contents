@@ -42,10 +42,9 @@ top_player_combination <- factorial(8)/ (factorial(6) * factorial(2))
 print(top_player_combination/pod_combination)*100
 ## 40%
 
-
-####################################################
-########### Percentile Rank ########################
-#####################################################
+###################################################
+########### Percentile Rank #######################
+###################################################
 # %rank = [# of values below x + 0.5 / total # of values] * 100
 
 # Calculate the percentile rank if you scored a 85% in your class of 20 students with the following scores:
@@ -59,3 +58,39 @@ print(top_player_combination/pod_combination)*100
 percent_rank <- ((6+0.5)/20)*100
 print(percent_rank)
 # Answer: 32.5 percentile
+
+##########################################
+########### Multiplication Rule ##########
+##########################################
+
+########
+## Independent Events
+########
+# Find the probability that two dice come up "one" when rolled.
+# Probability of the first dice coming up "one".
+first_dice <- 1/6
+## 0.16
+## 16%
+second_dice <- 1/6
+## 0.16
+## 16%
+both_dice <- (first_dice * second_dice) * 100
+print(both_dice)
+## 2.79%
+
+########
+## Dependent Events
+#########
+# What are the odds of picking two out of the three "Sigil of Solace" fab cards from your deck of 60 cards.
+
+## Odds of picking the first "Sigil of Solace"
+first_sigil <- 3/60
+## 0.05
+## 5%
+second_sigil <- 2/59
+## 0.033
+## 3.3%
+two_sigils <- (first_sigil * second_sigil) * 100
+print(two_sigils)
+## 0.16%
+
