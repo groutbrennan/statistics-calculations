@@ -94,3 +94,114 @@ two_sigils <- (first_sigil * second_sigil) * 100
 print(two_sigils)
 ## 0.16%
 
+#########################
+##### Bayes Theorem #####
+#########################
+# P(A|B) = P(B|A) P(A) / P(B|A) P(A)
+
+# millionaires               % of total Millionaires                Inherited their wealth
+# High School Drop-out                 0.05                                 0.40
+# High School Diploma                  0.15                                 0.20
+# Undergraduate degree                 0.60                                 0.20
+# Graduate degree                      0.20                                 0.15
+
+# P(A|B) = (PROB DROP) (PROB DROPOUT EARN) / (PROB DROPOUT EARN) + (PROB HS EARN) + (PROB UG EARN) + (PROB GRAD EARN)
+
+# Calculate hs_dropout_prob_earned
+hs_dropout_prob_earned <- (0.05 * 0.60) / ((0.05 * 0.60) + (0.15 * 0.80) + (0.60 * 0.80) + (0.15 * 0.85))
+
+# Print the result
+print(hs_dropout_prob_earned)
+# Answer: 0.039
+#         3.9%
+
+
+# Flesh and Blood Meta Breakdown
+
+# hero        %_of_total_meta         wins
+# Dromai        0.40                  0.20
+# Kayo          0.20                  0.30
+# Victor        0.20                  0.20
+# Katsu         0.10                  0.20
+# Kassai        0.10                  0.10
+
+# Calculate probability of Dromai winning the pro tour with this current meta.
+dromai_win_prob <- (0.40 * 0.20) / ((0.40 * 0.20) + (0.20 * 0.30) + (0.20 * 0.20) + (0.10 * 0.20) + (0.10 * 0.10))
+print(dromai_win_prob)
+# Answer: 0.38
+#         38%
+
+## Define meta array by %_of_total and wins
+# Create arrays for each hero's percentage of total meta and wins
+dromai <- c(0.40, 0.20)
+kayo <- c(0.20, 0.30)
+victor <- c(0.20, 0.20)
+katsu <- c(0.10, 0.20)
+kassai <- c(0.10, 0.10)
+
+dromai_win_probability <- (dromai[1] * dromai[2]) / ((dromai[1] * dromai[2]) + (kayo[1] * kayo[2]) + (victor[1] * victor[2]) + (katsu[1] * katsu[2]) + (kassai[1] * kassai[2]))
+print(dromai_win_probability)
+# Answer: 0.38
+#         38%
+
+### More elegant way to find the probability of Dromai winning the meta in the pro tour.
+# Define hero data as a list of vectors
+heroes <- list(
+  dromai = c(0.40, 0.20),
+  kayo = c(0.20, 0.30),
+  victor = c(0.20, 0.20),
+  katsu = c(0.10, 0.20),
+  kassai = c(0.10, 0.10)
+)
+
+# Calculate dromai's win probability. 
+# Iterate through the heroes list vector, using dromai values as the numerator and the sum of heroes values as the denominator.
+dromai_win_probability <- with(heroes, {
+  num <- dromai[1] * dromai[2]
+  denom <- sum(sapply(heroes, function(hero) hero[1] * hero[2]))
+  num / denom
+})
+
+# Print the result
+print(dromai_win_probability)
+# Answer: 0.38
+#         38%
+
+# Kayo win probability.
+kayo_win_probability <- with(heroes, {
+  num <- kayo[1] * kayo[2]
+  denom <- sum(sapply(heroes, function(hero) hero[1] * hero[2]))
+  num / denom
+})
+print(kayo_win_probability)
+# Answer: 0.29
+#         29%
+
+
+
+# Define hero data as a list of vectors
+heroes <- list(
+  dromai = c(0.40, 0.20),
+  kayo = c(0.20, 0.30),
+  victor = c(0.20, 0.20),
+  katsu = c(0.10, 0.20),
+  kassai = c(0.10, 0.10)
+)
+
+# Function to calculate win probability for a given hero
+calculate_win_probability <- function(hero_data, all_heroes) {
+  num <- hero_data[1] * hero_data[2]
+  denom <- sum(sapply(all_heroes, function(hero) hero[1] * hero[2]))
+  return(num / denom)
+}
+
+# Print the results for each hero's win probability
+for (hero_name in names(heroes)) {
+  win_prob <- calculate_win_probability(heroes[[hero_name]], heroes)
+  cat(hero_name, "win probability:", win_prob)
+}
+
+
+
+
+

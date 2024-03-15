@@ -1,9 +1,9 @@
 {
     "id": "A8C87D94",
-    "path": "C:/Users/groutb/Documents/statistics-r-studio-calculations/probabilities.R",
+    "path": "~/statistics-r-studio-calculations/probabilities.R",
     "project_path": "probabilities.R",
     "type": "r_source",
-    "hash": "872058049",
+    "hash": "0",
     "contents": "",
     "dirty": false,
     "created": 1710346708365.0,
@@ -13,15 +13,15 @@
         "tempName": "Untitled1",
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "78,7",
-        "scrollLine": "53"
+        "cursorPosition": "201,1",
+        "scrollLine": "179"
     },
     "folds": "",
-    "lastKnownWriteTime": 1710427693,
+    "lastKnownWriteTime": 1710527475,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1710427693946,
+    "last_content_update": 1710527475829,
     "read_only": false,
     "read_only_alternatives": []
 }
