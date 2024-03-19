@@ -78,6 +78,19 @@ both_dice <- (first_dice * second_dice) * 100
 print(both_dice)
 ## 2.79%
 
+
+# There are two stacks of cards, each with four cards. The cards in each stack are numbered 1, 2, 3, or 4 (there is only one of each number per stack). 
+# You draw one card from each stack, so there are sixteen possible combinations of cards you could draw. 
+# What is the probability of drawing at least one card with a 4 from either deck?
+first_stack_four <- 4
+second_stack_four <- 4
+overlap_four <- 1
+probability_of_4_from_one_stack <- first_stack_four + second_stack_four - overlap_four
+possibile_combinations <- 16
+probability_of_four <- (probability_of_4_from_one_stack/possibile_combinations) * 100
+print(probability_of_four)
+## Answer: 43.7%
+
 ########
 ## Dependent Events
 #########
