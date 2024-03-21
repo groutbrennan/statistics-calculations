@@ -177,3 +177,75 @@ for (hero_name in names(heroes)) {
 # victor win probability: 0.1904762 
 # katsu win probability: 0.0952381 
 # kassai win probability: 0.04761905 
+
+#################################################
+#### 2024 Flesh and Blood Data.
+#### Find probability of winning pro tour 2024.
+################################################
+# Define hero data as a list of vectors
+heroes_2024 <- list(
+  bravo = c(0.12, 0.07),
+  boltyn = c(0.07, 0.00),
+  katsu = c(0.08, 0.00),
+  levia = c(0.03, 0.07),
+  fai = c(0.03, 0.07),
+  dash = c(0.08, 0.00),
+  uzuri = c(0.08, 0.07),
+  kano = c(0.07, 0.00),
+  azalea = c(0.03, 0.07),
+  kayo = c(0.05, 0.13),
+  prism = c(0.03, 0.07),
+  dromai = c(0.08, 0.07),
+  olympia = c(0.02, 0.07),
+  kassai = c(0.08, 0.13),
+  victor = c(0.02, 0.07),
+  rhinar = c(0.02, 0.00),
+  dori = c(0.05, 0.00),
+  dash_io = c(0.02, 0.07),
+  betsy = c(0.02, 0.07)
+)
+
+# Sort top heroes by highest probability of winning.
+# Create an empty data frame to store hero names and win probabilities
+hero_results <- data.frame(hero_name = character(),
+                           win_probability = numeric())
+
+# Calculate and store win probabilities for each hero
+for (hero_name in names(heroes_2024)) {
+  win_prob <- calculate_win_probability(heroes_2024[[hero_name]], heroes_2024)
+  hero_results <- rbind(hero_results, data.frame(hero_name = hero_name, win_probability = win_prob))
+}
+
+# Sort the data frame based on win probabilities
+hero_results <- hero_results[order(-hero_results$win_probability), ]
+
+# Print the sorted results
+for (i in 1:nrow(hero_results)) {
+  cat(hero_results$hero_name[i], "win probability:", round(hero_results$win_probability[i], 2)*100, "\n")
+}
+
+# Asnwer
+# kassai win probability: 21 
+# bravo win probability: 17 
+# kayo win probability: 13 
+# uzuri win probability: 11 
+# dromai win probability: 11 
+# levia win probability: 4 
+# fai win probability: 4 
+# azalea win probability: 4 
+# prism win probability: 4 
+# olympia win probability: 3 
+# victor win probability: 3 
+# dash_io win probability: 3 
+# betsy win probability: 3 
+# boltyn win probability: 0 
+# katsu win probability: 0 
+# dash win probability: 0 
+# kano win probability: 0 
+# rhinar win probability: 0 
+# dori win probability: 0 
+
+
+
+
+
